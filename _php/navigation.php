@@ -13,7 +13,7 @@
 					</ul></li>
 				<li>Basic Fantasy Role-Playing Game
 					<ul>
-						<li><a href="/gaming/bfrpg/starter_set.html"><?php if ($title=="Starter Set") echo " id=\"current\""; ?>>Starter Set</a></li>
+						<li><a href="/gaming/bfrpg/starter_set.html"<?php if ($title=="Starter Set") echo " id=\"current\""; ?>>Starter Set</a></li>
 						<li><a href="/gaming/bfrpg/cops_and_robbers.pdf" target="_blank">Cops &amp; Robbers (.PDF)</a></li>
 						<li><a href="/gaming/bfrpg/character_creation.html"<?php if ($title=="Character Creation") echo " id=\"current\""; ?>>Character Creation</a></li>
 						<li><a href="/gaming/bfrpg/character_manager.html"<?php if ($title=="Character Manager") echo " id=\"current\""; ?>>Character Manager</a></li>
