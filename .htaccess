@@ -1,0 +1,29 @@
+#Basic
+DirectoryIndex index.html
+AddType application/x-httpd-php5 php
+
+#SSI
+AddHandler application/x-httpd-php5 .html .htm
+
+#Errors
+ErrorDocument 404 /error.html
+
+#Redirects
+Redirect /pawn.tray.html /gaming/pathfinder/pawn_tray.html
+Redirect /pawn_tray.html /gaming/pathfinder/pawn_tray.html
+Redirect /text.transformation.language.html /software/text_transformation_language.html
+Redirect /text_transformation_language.html /software/text_transformation_language.html
+Redirect /_downloads/bfrpg_king_of_the_autumns_harvest.html /gaming/bfrpg/king_of_the_autumns_harvest.html
+Redirect /_downloads/bfrpg_srd.html /_prototypes/bfrpg_srd.html
+Redirect /_downlaods/bfrpg_character_creation.html /_prototypes/bfrpg_character_creation.html
+
+#Hotlinks
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?dustinian.com/.*$ [NC]
+RewriteRule \.(gif|svg|jpg|js|css)$ - [F]
+
+#Bans
+order allow,deny
+allow from all
+deny from 69.84.207.246

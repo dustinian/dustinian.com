@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html><?php
+	$category="Software";
+	$title="Text Transformation Language";
+	$id="ttl";
+	?>
+<?php include_once("/home2/dustinia/php/header.php"); ?>
+	<h1>Text Transformation Language</h1>
+	<h2>Summary</h2>
+		<ul>
+			<li><strong>Purpose</strong>: Text Transformation Language is a scripting language that uses interpreted commands to transform text files.</li>
+			<li><strong>Author</strong>: Dustinian Camburides</li>
+			<li><strong>Platform</strong>: <a href="http://www.freebasic.net">FreeBASIC</a></li>
+			<li><strong>Revision</strong>: 2.7</li>
+			<li><strong>Updated</strong>: 7/24/2015</li>
+		</ul>
+	<h2>Downloads</h2>
+		<ul>
+			<li><strong>Compiled Interpreter</strong>: <a href="/_downloads/ttl.exe">.EXE</a></li>
+			<li><strong>Source Code</strong>: <a href="/_downloads/text_transformation_language.zip">.ZIP</a>
+				<ul>
+					<li>Compile with the following command line: <code>fbc -lang fb -s console "ttl.bas"</code></li>
+				</ul></li>
+		</ul>
+	<h2>Instructions</h2>
+		<ol>
+			<li>Using the syntax below, enter your commands into a plain-text file.</li>
+			<li>Run ttl.exe; use the command-line parameters to tell the interpreter where to find:
+			<ul>
+				<li>The command file</li>
+				<li>The input file(s)</li>
+			</ul></li>
+		</ol>
+	<h2>Sample Command-Lines</h2>
+		<ul>
+			<li>Transform Single File: <code>ttl.exe script_path.ttl input_path.txt</code></li>
+			<li>Transform Multiple Files: <code>ttl.exe script_path.ttl *.xml</code></li>
+		</ul>
+	<h2>Interact</h2>
+		<ul>
+			<li><strong>Collaborate:</strong> <a href="https://github.com/dustinian/ttl">GitHub</a></li>
+			<li><strong>Report a bug:</strong> <a href="https://github.com/dustinian/ttl/issues">Issues</a></li>
+			<li><strong>Comment:</strong> <a href="http://www.freebasic.net/forum/viewtopic.php?f=8&amp;t=21197">Freebasic.net</a></li>
+		</ul>
+	<h2>Syntax</h2>
+		<p>Use the below commands to transform your input text into your output text.</p>
+		<h3>Exact Text:</h3>
+			<ul>
+				<li><code>REPLACE "find" WITH "add"</code>
+			<ul>
+				<li>Replaces every instance of "find" with "add." This function is <strong>recursive</strong> (it will keep finding "find" over and over again until "find" is gone). Therefore, this function will throw an error if "add" contains "find," because this command would never finish.</li>
+			</ul></li>
+				<li><code>REPLACE "find" WITH "add" ONCE</code>
+			<ul>
+				<li>Replaces every instance of "find" with "add," but only once <strong>per instance</strong> of "find." This function is <strong>not recursive</strong>. This is useful if you want to do a replace, but your "add" contains your "find." Something like:
+			<ul>
+				<li><code>REPLACE "&lt;/p&gt;" WITH "&lt;/p&gt;" + NEWLINE ONCE</code></li>
+			</ul></li>
+			</ul></li>
+				<li><code>PREPEND "add" TO "find"</code></li>
+				<li><code>APPEND "add" TO "find"</code></li>
+				<li><code>SURROUND "find" with "add" and "add"</code></li>
+				<li><code>DELETE "find"</code></li>
+			</ul>
+		<h3>Exact Text between Preceding and Anteceding Text</h3>
+			<ul>
+				<li><code>REPLACE "find" WITH "add" BETWEEN "precedent" AND "antecedent"</code>
+			<ul>
+				<li>This replaces "find" with "add," but only when "find" appears between "precedent" and "antecedent." In other words, if you wanted to replace all the NEWLINEs with spaces but only inside of a table cell, you might say:
+		*<code>REPLACE NEWLINE WITH " " BETWEEN "&lt;td&gt;" AND "&lt;/td&gt;"</code></li>
+			</ul></li>
+				<li><code>REPLACE "find" WITH "add" BETWEEN "precedent" AND "antecedent" ONCE</code></li>
+				<li><code>DELETE "find" BETWEEN "precedent" AND "antecedent"</code></li>
+			</ul>
+		<h3>Text based on Preceding and Anteceding Text</h3>
+			<ul>
+				<li><code>REPLACE ALL WITH "add" BETWEEN "precedent" AND "antecedent"</code>
+			<ul>
+				<li>This replaces everything between the "precedent" and the "antecedent," but <strong>excludes</strong> the "precedent" and "antecedent" from the replacement. In other words, after the operation is complete, you would see the "precedent," the "add," and the "antecedent."</li>
+			</ul></li>
+				<li><code>REPLACE ALL WITH "add" FROM "precedent" TO "antecedent"</code>
+			<ul>
+				<li>This replaces everything between the "precedent" and the "antecedent," but <strong>includes</strong> the "precedent" and "antecedent." In other words, after the operation is complete, you would see only the "add." The "precedent" and "antecedent" would gone.</li>
+			</ul></li>
+				<li><code>DELETE ALL FROM "precedent" TO "antecedent"</code></li>
+				<li><code>DELETE ALL BETWEEN "precedent" AND "antecedent"</code></li>
+			</ul>
+		<h3>Advanced</h3>
+			<ul>
+				<li><code>REPLACE FIRST "find" AFTER "precedent" WITH "add"</code>
+			<ul>
+				<li>This replaces only the first instance of "find" after the "precedent" with "add." Example: You run an operation to replace some of your p tags with h2 tags in an HTML document. You'd naturally want to replace some of the /p tags with /h2 tags... but how can you target only those /p tags that follow an h2 tag? This operation does that.</li>
+			</ul></li>
+				<li><code>PREPEND "add"</code>
+			<ul>
+				<li>Adds text to the beginning of the input file.</li>
+			</ul></li>
+				<li><code>APPEND "add"</code>
+			<ul>
+				<li>Adds text to the end of the input file.</li>
+			</ul></li>
+			</ul>
+		<h3>Modules</h3>
+			<p>Use the below command to include a separate file of TTL commands into your current script.</p>
+			<ul>
+				<li><code>INCLUDE "c:\example_folder\example_file.ttl"</code></li>
+			</ul>
+	<h2>ASCII</h2>
+		<h3>Chr</h3>
+			<p>Use the "CHR()" operator to look for characters that you can't easily type into an ASCII TTL file.</p>
+			<ul>
+				<li><code>REPLACE CHR(8) WITH CHR(9)</code></li>
+			</ul>
+		<h3>Tokens</h3>
+			<p>Use tokens to stand in for commonly-used CHRs, and to make your TTL more readable. Tokens must appear OUTSIDE quotation marks to be interpreted correctly.</p>
+			<ul>
+				<li><code>REPLACE TAB WITH ", "</code></li>
+			</ul>
+			<table>
+				<thead>
+					<tr>
+						<th>Token</th>
+						<th>Chr</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>TAB</td>
+						<td>9</td>
+					</tr>
+					<tr>
+						<td>NEWLINE</td>
+						<td>10</td>
+					</tr>
+					<tr>
+						<td>CARRIAGERETURN</td>
+						<td>13</td>
+					</tr>
+					<tr>
+						<td>LINEBREAK</td>
+						<td>13 + 10</td>
+					</tr>
+					<tr>
+						<td>QUOTE</td>
+						<td>34</td>
+					</tr>
+				</tbody>
+			</table>
+		<h3>Concatenation</h3>
+			<p>Use the "+" or the "&amp;" characters (no difference in functionality) to concatenate multiple sub-strings into a single string in a TTL command.</p>
+			<ul>
+				<li><code>REPLACE "&lt;/p&gt;" &amp; NEWLINE &amp; NEWLINE WITH "&lt;/p&gt;" + NEWLINE</code></li>
+			</ul>
+		<h3>Quotation Marks</h3>
+			<p>Quotation marks tell TTL that everything inside the quotation is a sub-string. TTL does NOT parse text inside quotation marks for TTL Commands or Tokens.</p>
+	<h2>Revision History</h2>
+		<ul>
+			<li><strong>2.7</strong>: Added new commands.</li>
+			<li><strong>2.6</strong>: Updated the screen output.</li>
+			<li><strong>2.5</strong>: Added the "Prepend" and "Append" commands!</li>
+			<li><strong>2.4</strong>: TTL can now target multiple files!</li>
+			<li><strong>2.3</strong>: Added [Replace_Once] command.</li>
+			<li><strong>2.2</strong>: Added on-screen "log"; TTL outputs the original command before it executes. This helps when debugging TTL scripts.</li>
+			<li><strong>2.1</strong>: Added token support (TAB, LINEBREAK, QUOTE, etc.), and began compiling in -lang FB (vs. QB).</li>
+			<li><strong>2.0</strong>: Fixed an infinite loop that occurs when the [add] sub-string contains the [find] sub-string, updated command-line parameter parsing.</li>
+			<li><strong>1.9</strong>: Fixed parsing errors for Replace_Subsequent$ and Replace_Between$ commands, updated Replace_Subsequent$ syntax.</li>
+			<li><strong>1.8</strong>: Migrated from QB64 (<a href="http://www.qb64.net">www.qb64.net</a>) to FreeBASIC (<a href="http://www.freebasic.net">www.freebasic.net</a>).</li>
+			<li><strong>1.7</strong>: Broke the source code up into modules: String Manipulation, String Array, and Text File Input / Output.</li>
+			<li><strong>1.6</strong>: Fixed numerous errors in the [string manipulation] section.</li>
+			<li><strong>1.5</strong>: Re-named parameters/arguments For logical consistency.</li>
+			<li><strong>1.4</strong>: Altered the structure of the "parse" subroutines For better re-usability.</li>
+			<li><strong>1.3</strong>: Re-ordered and re-organized procedures For logical consistency.</li>
+			<li><strong>1.2</strong>: Added the ability to target any script to any file through a command-line parameter.</li>
+			<li><strong>1.1</strong>: Re-ordered and re-organized procedures For logical consistency.</li>
+			<li><strong>1.0</strong>: First working version.</li>
+		</ul>
+	<h2>Planned Enhancements</h2>
+		<h3>Major</h3>
+			<ul>
+				<li><strong>Wild Cards</strong>: Symbols For "wild card" searches (*, #, etc.).</li>
+				<li><strong>Text User-Interface (TUI)</strong>: A user interface assembled from ASCII characters (similar to the QB IDE).</li>
+				<li><strong>Graphical User-Interface (GUI)</strong>: A windows-style user interface (buttons, menus, scroll bars, etc.).</li>
+				<li><strong>Syntax Definitions</strong>: A more elegant way to validate/recognize command syntax (DTD file, XML definitions, etc.).</li>
+			</ul>
+		<h3>Minor</h3>
+			<ul>
+				<li><strong>Debug Logs</strong>: The ability to log transformations in progress at different levels of detail.</li>
+				<li><strong>Backwards Precedent/Antecedent Recognition</strong>: The ability for TTL to move through text backwards (InstrRev) so that it could, for example, find matched tag pairs in a markup language.</li>
+				<li><strong>Expand Delete Functionality</strong>: Expand a "Delete" option to more existing commands.</li>
+				<li><strong>REPLACE FROM Precedent TO Antecedent IF BETWEEN Precedent AND Antecedent</strong>: A new commend.</li>
+			</ul>
+	<h2>Sample Files</h2>
+		<ul>
+			<li><strong>Script</strong>: <a href="/_downloads/eyrie_script.ttl">eyrie_script.ttl</a>, written to convert Gryphon's stories at Eyrie Productions, Unlimited.</li>
+			<li><strong>Input</strong>: <a href="/_downloads/eyrie_input.txt">eyrie_input.txt</a>, part I of "The Fulcrum of Fate" by Gryphon.</li>
+			<li><strong>Command Line</strong>: ttl.exe eyrie_script.ttl eyrie_input.txt</li>
+		</ul>
+	<h2>License (GNU GPL3)</h2>
+		<p>Text Transformation Language is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
+		<p>Text Transformation Language is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details: <a href="http://www.gnu.org/licenses/">http://www.gnu.org/licenses/</a>.</p>
+<?php include_once("/home2/dustinia/php/footer.php"); ?>

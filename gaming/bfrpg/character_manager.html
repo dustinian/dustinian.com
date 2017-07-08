@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html><?php
+	$category="Gaming";
+	$title="Character Manager";
+	$style="bfrpg";
+	?>
+<?php include_once("/home2/dustinia/php/header.php"); id="character_manager"; ?>
+	<h1>Character Manager</h1>
+	<h2>Summary</h2>
+		<p>Build and manage characters for the <a href="http://www.basicfantasy.org">Basic Fantasy Role-Playing Game</a>.</p>
+	<h2>Materials</h2>
+		<p>To facilitate the character manager, I've put together a few documents. In case anyone may find these documents helpful, I'm providing them here.</p>
+		<ul>
+			<li><a href="/_prototypes/bfrpg_srd.html">BFRPG SRD</a>: At the suggestion of members of the <a href="http://www.basicfantasy.org/forums/">BFRPG forums</a>, I turned the "Core Rulebook" into an .HTML page that can serve as a "System Reference Document."</li>
+			<li><a href="/gaming/bfrpg/character_creation.html">BFRPG Character Creation</a>: Boils down all the steps / math for putting together a level one BFRPG character.</li>
+			<li><a href="/_prototypes/bfrpg_character_fields.html">BFRPG Character Fields</a>: A listing of the fields on the character sheet, with notes on each.</li>
+		</ul>
+	<h2>Project Plan</h2>
+		<p>I'm building out the below "project plan" as a way to keep track of my notes and ideas on the Character Builder as the idea matures.</p>
+		<ol class="outline">
+			<li>Write requirements.
+				<ol>
+					<li>Convert core rulebook to HTML5.</li>
+					<li>Write user epics/stories.
+						<ol class="epics">
+							<li><span class="role">Users</span> <span class="priority">need</span> to <span class="functionality">build characters</span> because <span class="reason">it should be faster than pen and paper</span>.
+								<ol class="steps">
+									<li>User [rolls/enters]  ability scores.
+										<ol>
+											<li>System derives bonus/penalty for each ability.</li>
+										</ol></li>
+									<li>User selects race.
+										<ol>
+											<li>System only allows the selection of races when prime requisites are met by the ability scores.</li>
+											<li>If a user attemps to select a race where the prime requisites are not met, a descriptive error message informs the user of the issue.</li>
+										</ol></li>
+									<li>User selects class.
+										<ol>
+											<li>System only allows the selection of classes when prime requisites are met by the ability scores.</li>
+											<li>If a user attemps to select a class where the prime requisites are not met, a descriptive error message informs the user of the issue.</li>
+											<li>System adds class-specific abilities.</li>
+											<li>System adds class-specific saving throws.</li>
+											<li>System adds class-specific attack bonus.</li>
+										</ol></li>
+									<li>User [rolls/enters] hit die. *add con bonus</li>
+									<li>[If magic-user / cleric] user selects spell(s).</li>
+									<li>User [rolls/enters] starting money.</li>
+									<li>User purchases starting equipment.</li>
+								</ol></li>
+							<li><span class="role">Users</span> <span class="priority">need</span> to <span class="functionality">modify characters</span> becuase <span class="reason">they need to level up between games.</span></li>
+							<li><span class="role">Users</span> <span class="priority">need</span> to <span class="functionality">modify characters</span> becuase <span class="reason">they need to purchase equipment between games.</span></li>
+							<li><span class="role">Users</span> <span class="priority">want</span> to <span class="functionality">modify characters</span> becuase <span class="reason">they need to keep journal/campaign notes between games.</span></li>
+							<li><span class="role">Users</span> <span class="priority">need</span> to <span class="functionality">print characters</span> because <span class="reason">they need to take them to games</span>.</li>
+							<li><span class="role">Users</span> <span class="priority">need</span> to <span class="functionality">share characters</span> because <span class="reason">their GM wants to approve the build</span>.</li>
+							<li><span class="role">Users</span> <span class="priority">want</span> to <span class="functionality">include supplaments</span> because <span class="reason">they're optimizers</span>.</li>
+							<li><span class="role">Users</span> <span class="priority">want</span> to <span class="functionality">exclude supplaments</span> because <span class="reason">their GM may limit what they can use</span>.</li>
+							<li><span class="role">Users</span> <span class="priority">want</span> to <span class="functionality">play from their phone/tablet</span> because <span class="reason">they can play anywhere, anytime.</span>.</li>
+							<li><span class="role">Users</span> <span class="priority">want</span> to <span class="functionality">export/import characters</span> because <span class="reason">they "trade" characters with friends</span>.</li>
+							<li><span class="role">Administrators</span> <span class="priority">want</span> to <span class="functionality">add/modify races</span> because <span class="reason">adding features shouldn't require development (within reason)</span>.</li>
+							<li><span class="role">Administrators</span> <span class="priority">want</span> to <span class="functionality">add/modify classes</span> because <span class="reason">adding features shouldn't require development (within reason)</span>.</li>
+							<li><span class="role">Administrators</span> <span class="priority">want</span> to <span class="functionality">add/modify spells</span> because <span class="reason">adding features shouldn't require development (within reason)</span>.</li>
+							<li><span class="role">Administrators</span> <span class="priority">want</span> to <span class="functionality">add/modify items</span> because <span class="reason">adding features shouldn't require development (within reason)</span>.</li>
+							<!-- <li><span class="role"></span> <span class="priority"></span> to <span class="functionality"></span> because <span class="reason"></span>.</li> -->
+						</ol></li>
+					<li>Write use cases.</li>
+				</ol>
+				</li>
+			<li>Develop prototype in LibreBase.
+				<ol>
+					<li>Build tables.
+						<ol>
+							<li>Import "spells."
+								<ol>
+									<li>ID MEDIUMINT NOT NULL AUTO_INCREMENT,</li>
+									<li>Spell TINYTEXT NOT NULL,</li>
+									<li>Range TINYTEXT NOT NULL,</li>
+									<li>RangeSQL TINYTEXT,</li>
+									<li>Duration TINYTEXT NOT NULL,</li>
+									<li>DurationSQL TINYTEXT,
+									<li>Description TEXT,</li>
+									<li>Reversable ENUM('No','Yes') NOT NULL,</li>
+									<li>PRIMARY KEY (ID)</li>
+								</ol></li>
+							<li>Import "items."
+								<ol>
+									<li>ID MEDIUMINT NOT NULL AUTO_INCREMENT,</li>
+									<li>Item</li>
+									<li>Description</li>
+									<li>Type ENUM('General', 'Armor and Shields', 'Weapons', 'Beasts of Burden', 'Vehicle', 'Siege Engine') NOT NULL,
+									<li>Cost</li>
+									<li>Weight</li>
+									<li>PRIMARY KEY (ID)</li>
+								</ol>
+								<ol>
+									<li>(Armor and Shields)</li>
+									<li>ID MEDIUMINT NOT NULL AUTO_INCREMENT,</li>
+									<li>Type ENUM('Armor', 'Shields') NOT NULL,</li>
+									<li>AC</li>
+								</ol>
+								<ol>
+									<li>(Weapons)</li>
+									<li>ID ENUM('Melee', 'Missile'),</li>
+									<li>
+								</ol></li>
+							<li>Import "abilities."
+								<ol>
+									<li></li>
+								</ol></li>
+							<li>Import "classes."
+								<ol>
+									<li></li>
+								</ol></li>
+							<li>Import "races."
+								<ol>
+									<li></li>
+								</ol></li>
+							<li>Import "experience."
+								<ol>
+									<li></li>
+								</ol></li>
+							<li>Import "hit dice."
+								<ol>
+									<li></li>
+								</ol></li>
+							<li>Import "spell progression."
+								<ol>
+									<li></li>
+								</ol></li>
+							<li>Build "characters."
+								<ol>
+									<li>Build "transactions" (items bought, sold).
+										<ol>
+											<li>Character_ID MEDIUMINT NOT NULL,</li>
+											<li>Transaction_ID MEDIUMINT NOT NULL AUTO_INCREMENT,</li>
+											<li></li>
+										</ol></li>
+									<li>Build "spell book" (known).</li>
+									<li>Build "spell slots" (equipped).</li>
+									<li>Build "journal" (gold, treasure, experience, items used).</li>
+									<li>Build "hit dice."</li>
+								</ol></li>
+							
+						</ol></li>
+					<li>Write queries.
+						<ol>
+							<li>Initialize Character</li>
+							<li>Learn Spell</li>
+							<li>Transaction *buy/sell item</li>
+							<li>Level Up</li>
+							<li>Write Journal</li>
+						</ol></li>
+					<li>Design forms.
+						<ol>
+							<li>Initialization Wizard *class descriptions, race descriptions, etc.</li>
+							<li>Character Sheet</li>
+							<li>Shop</li>
+							<li>Journal</li>
+							<li>Spell Book</li>
+						</ol></li>
+					<li>Deploy character builder.</li>
+					<li>Tweak character builder.</li>
+				</ol></li>
+			<li>Migrate to SQL/PHP.
+				<ol>
+					<li>Develop authentication framework.</li>
+					<li>Migrate tables.</li>
+					<li>Migrate queries.</li>
+					<li>Redesign forms.</li>
+					<li>Deploy character builder.</li>
+					<li>Tweak character builder.</li>
+				</ol></li>
+		</ol>
+	<h2>Downloads</h2>
+		<ul>
+			<li><a href="_downloads/bfrpg_spells.xml">Spells (.XML)</a></li>
+			<li><a href="_downloads/bfrpg_spells.ods">Spells (.ODS)</a></li>
+		</ul>
+<?php include_once("/home2/dustinia/php/footer.php"); ?>

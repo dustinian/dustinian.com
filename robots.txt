@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /_prototypes/dustinian_spells.json

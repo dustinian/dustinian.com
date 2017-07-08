@@ -1,0 +1,133 @@
+﻿/* Reset */
+	@charset "UTF-8";
+	@import url(http://reset5.googlecode.com/hg/reset.min.css);
+	@viewport{width: device-width; initial-scale: 1;}
+/* Basic */
+	/* Page */
+		body{
+			font-family: "Garamond", serif;
+			font-size: 100%;
+			}
+		div{
+			margin: 0%;
+			padding: 0%;
+			}
+	/* Headings */
+		h1, h2, h3, h4, h5{
+			font-family: "Helvetica", sans-serif;
+			margin: 0rem;
+			padding: 0rem;
+			border-style: none;
+			border-width: 0px;
+			}
+		h1{
+			font-size: 2em;
+			text-align: center;
+			}
+		h2{
+			font-size: 1.5em;
+			margin-top: 1.5rem;
+			}
+		h3{
+			font-size: 1em;
+			margin-top: 1rem;
+			margin-left: 1rem;
+			}
+		h4, h5, h6{
+			font-size: 1em;
+			font-weight: normal;
+			font-style: italic;
+			margin-top: .5rem;
+			margin-left: 1rem;
+			}
+	/* Content */
+		p{
+			margin: 0rem;
+			margin-left: 1rem;
+			padding: 0rem;
+			}
+		p + p, ul + p, ol + p{
+			margin-top: 0.5rem;
+			}
+		p + ul, p + ol, h3 + ul, h3 + ol, h4 + ul, h4 + ol, h5 + ul, h5 + ol, h6 + ul, h6 + ol{
+			margin-left: 1rem;
+			}
+		ul, ol{
+			margin: 0rem;
+			margin-bottom: .5rem;
+			padding: 0rem;
+			}
+		li{
+			margin: 0rem;
+			margin-left: 2em;
+			padding: 0rem;
+			}
+			li ul, li ol{
+				margin-bottom: 0rem;
+				}
+			li ul li, li ol li{
+				margin-left: 1rem;
+				}
+		table{
+			margin: 0rem;
+			margin-left: auto;
+			margin-right: auto;
+			}
+		a{
+			text-decoration: none;
+			}
+		img{
+			margin: auto;
+			}
+			img.full{
+				width: 90%;
+				}
+			img.half{
+				width: 45%;
+				}
+			img.small, img.thumb{
+				width: 10%;
+				}
+body.bfrpg{
+	div#footer{display: none;}
+	}
+/* Screen Layout */
+@media only screen{
+	body{
+		background-color: black;
+		margin: 0vw;
+		border-width: 0vw;
+		padding: 0vw;
+		}
+	div.layout{
+		float: left;
+		background-color: white;
+		margin-left: 1vw;
+		margin-top: 1vw;
+		border: 0vw solid white;
+			border-radius: 2vw;
+		padding: 1vw;
+		}
+	div#navigation{
+		width: 30vw;
+		}
+	div#content{
+		width: 60vw;
+		}
+	}
+@media only screen and (max-width: 480px){
+	div#navigation{
+		width: 93vw;
+		}
+	div#content{
+		width: 93vw;
+		}
+	}
+/* Print Layout */
+@media print{
+	div#navigation{display: none;}
+	div#social{display: none;}
+	}
+/* Navigation: Hide members in "other" categories */
+	div#navigation li ul li ul{display: none;}
+	div#navigation li#current ul{display: block;}
