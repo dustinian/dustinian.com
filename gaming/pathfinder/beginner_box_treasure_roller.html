@@ -1,0 +1,23 @@
+<!DOCTYPE html><?php
+	$category="Gaming";
+	$title="Beginner Box Treasure Roller";
+	$id="beginner_box_treasure_roller";
+	?>
+<?php include_once("/home2/dustinia/php/header.php"); ?>
+	<h1>Beginner Box Treasure Roller</h1>
+		<h2>Roll</h2>
+			<ul class="buttons">
+				<li><button type="button" onclick="RollMajor()">Roll Major Treasure</button></li>
+				<li><button type="button" onclick="RollMinor()">Roll Minor Treasure</button></li>
+			</ul>
+		<h2>Results</h2>
+			<ul id="output_result">
+			</ul>
+			<ul class="buttons">
+				<!--<li><button type="button" onclick="CopyResult()">Copy Results</button></li>-->
+				<li><button type="button" onclick="ClearResult()">Clear Results</button></li>
+			</ul>
+			</div>
+		</div>
+	<script type="text/javascript" src="/_scripts/beginner_box_treasure_roller.js"></script>
+<?php include_once("/home2/dustinia/php/footer.php"); ?>

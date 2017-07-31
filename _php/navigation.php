@@ -9,6 +9,7 @@
 			<ul>
 				<li>Pathfinder
 					<ul>
+						<li><a href="/gaming/pathfinder/beginner_box_treasure_roller.html"<?php if ($title=="Beginner Box Treasure Roller") echo " id=\"current\""; ?>>Beginner Box Treasure Roller</a></li>
 						<li><a href="/gaming/pathfinder/pawn_tray.html"<?php if ($title=="Pawn Tray") echo " id=\"current\""; ?>>Pawn Tray</a></li>
 					</ul></li>
 				<li>Basic Fantasy Role-Playing Game
