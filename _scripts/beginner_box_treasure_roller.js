@@ -24,15 +24,15 @@ function MajorRandomTreasure() {
 	if (roll < 6) {
 		treasure += "Two rolls on the Minor Random Treasure table:";
 		treasure += "<ul>";
-		treasure += "<li>Minor Treasure:" + MinorRandomTreasure() + "</li>";
-		treasure += "<li>Minor Treasure:" + MinorRandomTreasure() + "</li>";
+		treasure += "<li>Minor Treasure: " + MinorRandomTreasure() + "</li>";
+		treasure += "<li>Minor Treasure: " + MinorRandomTreasure() + "</li>";
 		treasure += "</ul>";
 	} else if (roll < 16) {
 		treasure += "Three rolls on the Minor Random Treasure table:";
 		treasure += "<ul>";
-		treasure += "<li>Minor Treasure:" + MinorRandomTreasure() + "</li>";
-		treasure += "<li>Minor Treasure:" + MinorRandomTreasure() + "</li>";
-		treasure += "<li>Minor Treasure:" + MinorRandomTreasure() + "</li>";
+		treasure += "<li>Minor Treasure: " + MinorRandomTreasure() + "</li>";
+		treasure += "<li>Minor Treasure: " + MinorRandomTreasure() + "</li>";
+		treasure += "<li>Minor Treasure: " + MinorRandomTreasure() + "</li>";
 		treasure += "</ul>";
 	} else if (roll < 38) {
 		treasure += RollDice(10, 6) + " (10d6) GP";
@@ -41,13 +41,14 @@ function MajorRandomTreasure() {
 	} else if (roll < 55) {
 		treasure += "Masterwork Weapon";
 	} else if (roll < 80) {
-		treasure += "Minor Magic Item";
+		treasure += "Minor Magic Item: ";
 		treasure += MinorMagicItem();
 	} else if (roll < 100) {
-		treasure += "Major Magic Item";
+		treasure += "Major Magic Item: ";
 		treasure += MajorMagicItem();
 	} else if (roll < 101) {
-		treasure += "Roll again, add treasure map:";
+		treasure += "Treasure map (roll again)...";
+		treasure += "</li>"
 		treasure += MajorRandomTreasure();
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
@@ -70,10 +71,11 @@ function MinorRandomTreasure() {
 	} else if (roll < 75) {
 		treasure += "Masterwork Weapon";
 	} else if (roll < 100) {
-		treasure += "Minor Magic Item";
+		treasure += "Minor Magic Item: ";
 		treasure += MinorMagicItem();
 	} else if (roll < 101) {
-		treasure += "Roll again, add treasure map:";
+		treasure += "Treasure map (roll again)...";
+		treasure += "</li>"
 		treasure += MinorRandomTreasure();
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
@@ -91,78 +93,78 @@ function RollDice(dice, die) {
 function MinorMagicItem() {
 	'use strict';
 	var roll = RollDice(1, 100);
-	var treasure = "<ul><li>";
+	var treasure; //= "<ul><li>";
 	if (roll < 3) {
-		treasure += "Magic Armor";
+		treasure += "Magic Armor, ";
 		treasure += MinorMagicArmor();
 	} else if (roll < 5) {
-		treasure += "Magic Shield";
+		treasure += "Magic Shield, ";
 		treasure += MagicShield();
 	} else if (roll < 10) {
-		treasure += "Magic Weapon";
+		treasure += "Magic Weapon, ";
 		treasure += MinorMagicWeapon();
 	} else if (roll < 45) {
-		treasure += "Potion";
+		treasure += "Potion of ";
 		treasure += Potion();
 	} else if (roll < 47) {
-		treasure += "Ring";
+		treasure += "Ring of ";
 		treasure += Ring();
 	} else if (roll < 82) {
-		treasure += "Scroll";
+		treasure += "Scroll of ";
 		treasure += MinorScroll();
 	} else if (roll < 92) {
-		treasure += "Wand";
+		treasure += "Wand of ";
 		//treasure += MinorWand();
 	} else if (roll < 101) {
-		treasure += "Wondrous Item";
+		treasure += "Wondrous Item, ";
 		//treasure += MinorWondrousItem();
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
 	}
-	treasure += "</li></ul>";
+	//treasure += "</li></ul>";
 	return treasure;
 	}
 function MajorMagicItem() {
 	'use strict';
 	var roll = RollDice(1, 100);
-	var treasure = "<ul><li>";
+	var treasure; //= "<ul><li>";
 	if (roll < 10) {
-		treasure += "Magic Armor:";
+		treasure += "Magic Armor, ";
 		treasure += MajorMagicArmor();
 	} else if (roll < 18) {
-		treasure += "Magic Shield";
+		treasure += "Magic Shield, ";
 		treasure += MagicShield();
 	} else if (roll < 28) {
-		treasure += "Magic Weapon";
+		treasure += "Magic Weapon, ";
 		treasure += MajorMagicWeapon();
 	} else if (roll < 38) {
-		treasure += "Potion";
+		treasure += "Potion of ";
 		treasure += Potion();
 	} else if (roll < 48) {
-		treasure += "Ring";
+		treasure += "Ring of ";
 		treasure += Ring();
 	} else if (roll < 64) {
-		treasure += "Scroll";
+		treasure += "Scroll of ";
 		treasure += MajorScroll();
 	} else if (roll < 67) {
-		treasure += "Staff";
+		treasure += "Staff of ";
 		treasure += Staff();
 	} else if (roll < 83) {
-		treasure += "Wand";
+		treasure += "Wand of ";
 		//treasure += MajorWand();
 	} else if (roll < 101) {
-		treasure += "Wondrous Item";
+		treasure += "Wondrous Item, ";
 		//treasure += MajorWondrousItem();
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
 	}
-	treasure += "</li></ul>";
+	//treasure += "</li></ul>";
 	return treasure;
 	}
 function MinorMagicArmor() {
 	'use strict';
 	var roll = RollDice(1, 100);
-	var treasure = "<ul><li>";
+	var treasure; //= "<ul><li>";
 	if (roll < 63) {
 		treasure += "+1 Armor";
 	} else if (roll < 66) {
@@ -178,13 +180,13 @@ function MinorMagicArmor() {
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
 	}
-	treasure += "</li></ul>";
+	//treasure += "</li></ul>";
 	return treasure;
 	}
 function MajorMagicArmor() {
 	'use strict';
 	var roll = RollDice(1, 100);
-	var treasure = "<ul><li>";
+	var treasure; //= "<ul><li>";
 	if (roll < 14) {
 		treasure += "+1 Armor";
 	} else if (roll < 19) {
@@ -200,13 +202,13 @@ function MajorMagicArmor() {
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
 	}
-	treasure += "</li></ul>";
+	//treasure += "</li></ul>";
 	return treasure;
 	}
 function MagicShield() {
 	'use strict';
 	var roll = RollDice(1, 100);
-	var treasure = "<ul><li>";
+	var treasure; //= "<ul><li>";
 	if (roll < 81) {
 		treasure += "+1 Shield";
 	} else if (roll < 83) {
@@ -222,13 +224,13 @@ function MagicShield() {
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
 	}
-	treasure += "</li></ul>";
+	//treasure += "</li></ul>";
 	return treasure;
 	}
 function MinorMagicWeapon() {
 	'use strict';
 	var roll = RollDice(1, 100);
-	var treasure = "<ul><li>";
+	var treasure; //= "<ul><li>";
 	if (roll < 89) {
 		treasure += "+1 Weapon";
 	} else if (roll < 90) {
@@ -244,13 +246,13 @@ function MinorMagicWeapon() {
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
 	}
-	treasure += "</li></ul>";
+	//treasure += "</li></ul>";
 	return treasure;
 	}
 function MajorMagicWeapon () {
 	'use strict';
 	var roll = RollDice(1, 100);
-	var treasure = "<ul><li>";
+	var treasure; //= "<ul><li>";
 	if (roll < 47) {
 		treasure += "+1 Weapon";
 	} else if (roll < 50) {
@@ -274,13 +276,13 @@ function MajorMagicWeapon () {
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
 	}
-	treasure += "</li></ul>";
+	//treasure += "</li></ul>";
 	return treasure;
 	}
 function Potion() {
 	'use strict';
 	var roll = RollDice(1, 100);
-	var treasure = "<ul><li>";
+	var treasure; //= "<ul><li>";
 	if (roll < 15) {
 		treasure += "Cure Light Wounds";
 	} else if (roll < 21) {
@@ -330,13 +332,13 @@ function Potion() {
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
 	}
-	treasure += "</li></ul>";
+	//treasure += "</li></ul>";
 	return treasure;
 	}
 function Ring() {
 	'use strict';
 	var roll = RollDice(1, 100);
-	var treasure = "<ul><li>";
+	var treasure; //= "<ul><li>";
 	if (roll < 16) {
 		treasure += "Ring of Climbing";
 	} else if (roll < 31) {
@@ -352,13 +354,13 @@ function Ring() {
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
 	}
-	treasure += "</li></ul>";
+	//treasure += "</li></ul>";
 	return treasure;
 	}
 function MinorScroll() {
 	'use strict';
 	var roll = RollDice(1, 100);
-	var treasure = "<ul><li>";
+	var treasure; //= "<ul><li>";
 	if (roll < 6) {
 		treasure += "Bless";
 	} else if (roll < 14) {
@@ -418,13 +420,13 @@ function MinorScroll() {
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
 	}
-	treasure += "</li></ul>";
+	//treasure += "</li></ul>";
 	return treasure;
 	}
 function MajorScroll() {
 	'use strict';
 	var roll = RollDice(1, 100);
-	var treasure = "<ul><li>";
+	var treasure; //= "<ul><li>";
 	if (roll < 11) {
 		treasure += "Two Random Minor Scrolls";
 	} else if (roll < 21) {
@@ -484,13 +486,13 @@ function MajorScroll() {
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
 	}
-	treasure += "</li></ul>";
+	//treasure += "</li></ul>";
 	return treasure;
 	}
 function Staff() {
 	'use strict';
 	var roll = RollDice(1, 100);
-	var treasure = "<ul><li>";
+	var treasure; //= "<ul><li>";
 	if (roll < 61) {
 		treasure += "Curing";
 	} else if (roll < 81) {
@@ -502,6 +504,6 @@ function Staff() {
 	} else {
 		treasure += "Something weird happened. You rolled a " + roll + " and the script couldn't handle that number...";
 	}
-	treasure += "</li></ul>";
+	//treasure += "</li></ul>";
 	return treasure;
 	}

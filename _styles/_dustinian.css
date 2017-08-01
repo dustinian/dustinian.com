@@ -94,7 +94,7 @@ body.bfrpg{
 /* Screen Layout */
 @media only screen{
 	body{
-		background-color: black;
+		background-color: darkblue;
 		margin: 0vw;
 		border-width: 0vw;
 		padding: 0vw;
@@ -105,14 +105,14 @@ body.bfrpg{
 		margin-left: 1vw;
 		margin-top: 1vw;
 		border: 0vw solid white;
-			border-radius: 2vw;
+			border-radius: 1vw;
 		padding: 1vw;
 		}
 	div#navigation{
 		width: 30vw;
 		}
 	div#content{
-		width: 60vw;
+		width: 61vw;
 		}
 	}
 @media only screen and (max-width: 480px){
