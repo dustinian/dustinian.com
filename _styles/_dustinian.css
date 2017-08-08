@@ -5,7 +5,7 @@
 /* Basic */
 	/* Page */
 		body{
-			font-family: "Garamond", serif;
+			font-family: "Raleway", sans-serif;
 			font-size: 100%;
 			}
 		div{
@@ -14,7 +14,8 @@
 			}
 	/* Headings */
 		h1, h2, h3, h4, h5{
-			font-family: "Helvetica", sans-serif;
+			font-family: "Oswald", sans-serif;
+			font-weight: normal;
 			margin: 0rem;
 			padding: 0rem;
 			border-style: none;
@@ -39,6 +40,9 @@
 			font-style: italic;
 			margin-top: .5rem;
 			margin-left: 1rem;
+			}
+		div.fineprint{
+			font-size: .75em;
 			}
 	/* Content */
 		p{
@@ -94,33 +98,35 @@ body.bfrpg{
 /* Screen Layout */
 @media only screen{
 	body{
-		background-color: darkblue;
+		background-color: blue;
 		margin: 0vw;
 		border-width: 0vw;
 		padding: 0vw;
 		}
 	div.layout{
+		box-sizing: border-box;
 		float: left;
 		background-color: white;
-		margin-left: 1vw;
+		margin-left: 1%;
 		margin-top: 1vw;
-		border: 0vw solid white;
-			border-radius: 1vw;
-		padding: 1vw;
+		border: 0px solid white;
+			border-radius: 1rem;
+		padding: .5rem;
+		box-shadow: .5% .5% .25% darkblue;
 		}
 	div#navigation{
-		width: 30vw;
+		width: 20%;
 		}
 	div#content{
-		width: 61vw;
+		width: 77%;
 		}
 	}
 @media only screen and (max-width: 480px){
 	div#navigation{
-		width: 93vw;
+		width: 97%;
 		}
 	div#content{
-		width: 93vw;
+		width: 97%;
 		}
 	}
 /* Print Layout */
@@ -129,5 +135,14 @@ body.bfrpg{
 	div#social{display: none;}
 	}
 /* Navigation: Hide members in "other" categories */
-	div#navigation li ul li ul{display: none;}
+	div#navigation li ul{display: none; margin-left: 1rem;}
 	div#navigation li#current ul{display: block;}
+	div#navigation ul{
+		list-style-type: none;
+		margin-left: 0rem;
+		padding-left: 0rem;
+		}
+	div#navigation li{
+		margin-left: 0rem;
+		padding-left: 0rem;
+		}
