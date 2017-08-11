@@ -1,5 +1,5 @@
 ﻿<div class="layout" id="navigation">
-	<ul>
+	<ul id="root">
 		<li<?php if ($category=="Home") echo " id=\"current\""; ?>><a href="/"<?php if ($title=="dustinian.com") echo " id=\"current\""; ?>>dustinian.com</a></li>
 		<li<?php if ($category=="Software") echo " id=\"current\""; ?>><a href="/software/"<?php if ($title=="Software") echo " id=\"current\""; ?>>Software</a>
 			<ul>

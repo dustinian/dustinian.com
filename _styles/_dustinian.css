@@ -79,6 +79,13 @@
 			}
 		a{
 			text-decoration: none;
+			color: blue;
+			}
+		a:visited{
+			color: blue;
+			}
+		a:active{
+			color: blue;
 			}
 		img{
 			margin: auto;
@@ -99,20 +106,22 @@ body.bfrpg{
 @media only screen{
 	body{
 		background-color: blue;
-		margin: 0vw;
-		border-width: 0vw;
-		padding: 0vw;
+		margin: 0px;
+		border-width: 0px;
+		padding: 0px;
+		padding-bottom: 1vw;
 		}
 	div.layout{
 		box-sizing: border-box;
 		float: left;
 		background-color: white;
+		margin: 0px;
 		margin-left: 1%;
 		margin-top: 1vw;
 		border: 0px solid white;
 			border-radius: 1rem;
 		padding: .5rem;
-		box-shadow: .5% .5% .25% darkblue;
+		box-shadow: .5vw .5vw .25vw darkblue;
 		}
 	div#navigation{
 		width: 20%;
@@ -121,23 +130,10 @@ body.bfrpg{
 		width: 77%;
 		}
 	}
-@media only screen and (max-width: 480px){
-	div#navigation{
-		width: 97%;
-		}
-	div#content{
-		width: 97%;
-		}
-	}
-/* Print Layout */
-@media print{
-	div#navigation{display: none;}
-	div#social{display: none;}
-	}
 /* Navigation: Hide members in "other" categories */
 	div#navigation li ul{display: none; margin-left: 1rem;}
 	div#navigation li#current ul{display: block;}
-	div#navigation ul{
+	div#navigation ul#root{
 		list-style-type: none;
 		margin-left: 0rem;
 		padding-left: 0rem;
@@ -146,3 +142,25 @@ body.bfrpg{
 		margin-left: 0rem;
 		padding-left: 0rem;
 		}
+@media only screen and (max-width: 480px){
+	div#navigation{
+		width: 98%;
+		}
+	div#navigation ul li{
+		display: none;
+		}
+	div#navigation ul#root:before{
+		content: ' \2630';
+		}
+	div#navigation ul#root:hover > li{
+		display: block;
+		}
+	div#content{
+		width: 98%;
+		}
+	}
+/* Print Layout */
+@media print{
+	div#navigation{display: none;}
+	div#social{display: none;}
+	}

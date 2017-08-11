@@ -657,13 +657,153 @@ function MinorWondrousItem() {
 	'use strict';
 	var roll = RollDice(1, 100);
 	var treasure = "<em>" + roll + "&percnt;</em>, ";
-	//if
+	if (roll < 11) {
+		treasure += "<strong>Bandages of Rapid Recovery</strong>.";
+	} else if (roll < 18) {
+		treasure += "<strong>Bird Feather Token</strong>.";
+	} else if (roll < 21) {
+		treasure += "<strong>Bracers of Armor +1</strong>.";
+	} else if (roll < 22) {
+		treasure += "<strong>Bracers of Armor +2</strong>.";
+	} else if (roll < 28) {
+		treasure += "<strong>Brooch of Shielding</strong>.";
+	} else if (roll < 31) {
+		treasure += "<strong>Campfire Bread</strong>.";
+	} else if (roll < 33) {
+		treasure += "<strong>Cloak of Resistance +1</strong>.";
+	} else if (roll < 34) {
+		treasure += "<strong>Dust of Illusion</strong>.";
+	} else if (roll < 35) {
+		treasure += "<strong>Elemental Gem</strong>.";
+	} else if (roll < 37) {
+		treasure += "<strong>Elixir of Fire Breath</strong>.";
+	} else if (roll < 52) {
+		treasure += "<strong>Elixir of Hiding</strong>.";
+	} else if (roll < 67) {
+		treasure += "<strong>Elixir of Swimming</strong>.";
+	} else if (roll < 83) {
+		treasure += "<strong>Elixir of Vision</strong>.";
+	} else if (roll < 85) {
+		treasure += "<strong>Hand of the Mage</strong>.";
+	} else if (roll < 89) {
+		treasure += "<strong>Heroic Tabard</strong>.";
+	} else if (roll < 90) {
+		treasure += "<strong>Pearl of Power (1st-Level)</strong>.";
+	} else if (roll < 91) {
+		treasure += "<strong>Salve of Slipperiness</strong>.";
+	} else if (roll < 96) {
+		treasure += "<strong>Silversheen</strong>.";
+	} else if (roll < 101) {
+		treasure += "<strong>Tree Feather Token</strong>.";
+	} else {
+		treasure += "Something went wrong.";
+	}
 	return treasure;
 	}
 function MajorWondrousItem() {
 	'use strict';
 	var roll = RollDice(1, 100);
 	var treasure = "<em>" + roll + "&percnt;</em>, ";
-	//if
+	if (roll < 4) {
+		treasure += "<strong>Amulet of Natural Armor +1</strong>.";
+	} else if (roll < 7) {
+		treasure += "<strong>Bag of Holding</strong>.";
+	} else if (roll < 8) {
+		treasure += "<strong>Bag of Tricks</strong>.";
+	} else if (roll < 9) {
+		treasure += "<strong>Belt of Giant Strength</strong>.";
+	} else if (roll < 10) {
+		treasure += "<strong>Belt of Incredible Dexterity</strong>.";
+	} else if (roll < 11) {
+		treasure += "<strong>Belt of Mighty Constitution</strong>.";
+	} else if (roll < 14) {
+		treasure += "<strong>Boots of Elvenkind</strong>.";
+	} else if (roll < 15) {
+		treasure += "<strong>Boots of Striding and Springing</strong>.";
+	} else if (roll < 16) {
+		treasure += "<strong>Bottle of Air</strong>.";
+	} else if (roll < 20) {
+		treasure += "<strong>Bracers of Armor +1</strong>.";
+	} else if (roll < 22) {
+		treasure += "<strong>Bracers of Armor +2</strong>.";
+	} else if (roll < 25) {
+		treasure += "<strong>Chime of Opening</strong>.";
+	} else if (roll < 26) {
+		treasure += "<strong>Clear Spindle Ioun Stone</strong>.";
+	} else if (roll < 29) {
+		treasure += "<strong>Cloak of the Dark Tapestry</strong>.";
+	} else if (roll < 32) {
+		treasure += "<strong>Cloak of Elvenkind</strong>.";
+	} else if (roll < 38) {
+		treasure += "<strong>Cloak of Resistance +1</strong>.";
+	} else if (roll < 39) {
+		treasure += "<strong>Cloak of Resistance +2</strong>.";
+	} else if (roll < 42) {
+		treasure += "<strong>Dawnflower Sash</strong>.";
+	} else if (roll < 45) {
+		treasure += "<strong>Dust of Illusion</strong>.";
+	} else if (roll < 46) {
+		treasure += "<strong>Dusty Rose Prism Ioun Stone</strong>.";
+	} else if (roll < 49) {
+		treasure += "<strong>Elemental Gem</strong>.";
+	} else if (roll < 54) {
+		treasure += "<strong>Elixir of Fire Breath</strong>.";
+	} else if (roll < 55) {
+		treasure += "<strong>Elixir of Hiding</strong>.";
+	} else if (roll < 56) {
+		treasure += "<strong>Elixir of Swimming</strong>.";
+	} else if (roll < 58) {
+		treasure += "<strong>Elixir of Vision</strong>.";
+	} else if (roll < 61) {
+		treasure += "<strong>Flying Ointment</strong>.";
+	} else if (roll < 62) {
+		treasure += "<strong>Gloves of Arrow Snaring</strong>.";
+	} else if (roll < 65) {
+		treasure += "<strong>Glowing Glove</strong>.";
+	} else if (roll < 66) {
+		treasure += "<strong>Hand of Glory</strong>.";
+	} else if (roll < 67) {
+		treasure += "<strong>Hand of the Mage</strong>.";
+	} else if (roll < 70) {
+		treasure += "<strong>Hat of Disguise</strong>.";
+	} else if (roll < 71) {
+		treasure += "<strong>Headband of Alluring Charisma</strong>.";
+	} else if (roll < 72) {
+		treasure += "<strong>Headband of Inspired Wisdom</strong>.";
+	} else if (roll < 73) {
+		treasure += "<strong>Headband of Vast Intelligence</strong>.";
+	} else if (roll < 76) {
+		treasure += "<strong>Horn of Fog</strong>.";
+	} else if (roll < 77) {
+		treasure += "<strong>Mossy Disk Ioun Stone</strong>.";
+	} else if (roll < 80) {
+		treasure += "<strong>Necklace of Fireballs</strong>.";
+	} else if (roll < 85) {
+		treasure += "<strong>Pearl of Power (1st-Level)</strong>.";
+	} else if (roll < 86) {
+		treasure += "<strong>Pearl of Power (2nd-Level)</strong>.";
+	} else if (roll < 87) {
+		treasure += "<strong>Restorative Ointment</strong>.";
+	} else if (roll < 89) {
+		treasure += "<strong>Salve of Slipperiness</strong>.";
+	} else if (roll < 90) {
+		treasure += "<strong>Shadow Helm</strong>.";
+	} else if (roll < 91) {
+		treasure += "<strong>Sihedron Medallion</strong>.";
+	} else if (roll < 92) {
+		treasure += "<strong>Silversheen</strong>.";
+	} else if (roll < 93) {
+		treasure += "<strong>Slippers of Spider Climbing</strong>.";
+	} else if (roll < 96) {
+		treasure += "<strong>Sovereign Glue</strong>.";
+	} else if (roll < 99) {
+		treasure += "<strong>Stone Salve</strong>.";
+	} else if (roll < 100) {
+		treasure += "<strong>Sustaining Bowl</strong>.";
+	} else if (roll < 101) {
+		treasure += "<strong>Universal Solvent</strong>.";
+	} else {
+		treasure += "Something went wrong.";
+	}
 	return treasure;
 	}
